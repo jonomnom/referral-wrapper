@@ -1,0 +1,4 @@
+```
+yarn
+yarn hardhat test
+```
