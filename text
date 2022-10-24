@@ -1,0 +1,22 @@
+1.Homework 1 Write a solidity contract that has these functions:
+
+internal function that adds variables x and y;
+internal function that multiplies variables x and y;
+external function to view and return the resulting integers;
+
+2. {Task}
+Write an Investor Schedule Contract
+{Description}
+An investor schedule contract maintains the token vesting schedules such that the tokens are emitted over time and not immediately. Typically, the tokens are locked until a certain time passes upon which the tokens are unlocked and can be withdrawn. So let's make one 🙂
+
+1. We would need a struct that holds the balance, address, and lock time of each person that has a vesting schedule. This will be our ledger for holding account statuses.
+
+2. We would need a function that lets us create an account with balance, address, and set the lock time as the time when we call the contract (block.timestamp).
+
+3. Then, we would need a function that calculates a withdraw allowance schedule so that at the start of the lock, balance locked will be the total initial, and that whenever a certain time passes, tokens will be linearly released for the time period.
+
+ex. At block 0, I have 100 locked tokens I cannot withdraw. At block 50, I have 50 locked tokens, but my withdraw balance is 50 tokens released. And at block 100, all my tokens are released.
+
+4. Finally, we want a function that allows us to withdraw our tokens and set our balance to however much we withdraw.
+
+As always, if you need help, feel free to ask!
