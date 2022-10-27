@@ -16,7 +16,7 @@ contract Color is ERC721Enumerable {
 
     mintedColors.push(_color);
     uint256 _id = mintedColors.length - 1;
-    _mint(msg.sender, _id);
+    _safeMint(msg.sender, _id);
     _colorExists[_color] = true;
     require(mintedColors.length == 1, "Not minted");
   }

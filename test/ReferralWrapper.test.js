@@ -46,6 +46,8 @@ async function printBalance(address, key, erc20s) {
       describe("referral wrapper", async () => {
         it("mints and sends fees appropriately", async () => {
           affiliate = deployer
+          const setNftFee = await referralWrapper.setNftContract(color.address)
+          await setNftFee.wait()
           const fees = referralWrapper.whitelistTokens([usdcMock.address, laggMock.address])
           const transactionHash = await referralWrapper.deposit({
             value: ethers.utils.parseEther("500"),
@@ -69,7 +71,7 @@ async function printBalance(address, key, erc20s) {
           ])
           feeTx.wait()
           try {
-            const mintTx = await referralWrapperWithSigner.mintNFT(affiliate, color.address, {
+            const mintTx = await referralWrapperWithSigner.mintNFT(affiliate, {
               value: ethers.utils.parseEther("1.0"),
             })
             const r = await mintTx.wait()
